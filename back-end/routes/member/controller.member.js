@@ -33,8 +33,8 @@ module.exports = {
         })
     },
     addMember: async (req, res) =>{
-        const salt = bcrypt.genSaltSync(10);
-        const hash = bcrypt.hashSync(req.body.password, salt);
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(req.body.password, salt);
 
         let member = {
           ...req.body,
@@ -102,16 +102,27 @@ module.exports = {
         Member.findOne({email: req.body.email})
         .then(result =>{
             if(result){
-                const password = bcrypt.compareSync(req.body.password, result.password)
-                    if(password){
-                        const token = jwt.sign(result.toObject(), process.env.SECRET_KEY)
+                bcrypt.compare(req.body.password, result.password)
+                .then((data) =>{
+                    console.log(data)
+                    const token = jwt.sign(result.toObject(), process.env.SECRET_KEY)
                         res.json({
                             message:"login success",
                             token
                         })
-                    } else{
-                        res.json('wrong password')
-                    }
+                })
+                .catch((error) =>{
+                    res.json('wrong password')
+                })
+                    // if(password){
+                    //     const token = jwt.sign(result.toObject(), process.env.SECRET_KEY)
+                    //     res.json({
+                    //         message:"login success",
+                    //         token
+                    //     })
+                    // } else{
+                    //     res.json('wrong password')
+                    // }
             } else{
                 res.json('user not found')
             }

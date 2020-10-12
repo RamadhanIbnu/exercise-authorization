@@ -7,6 +7,9 @@ const memberSchema = new mongoose.Schema({
     },
     email: String,
     password: String,
+    gender: String,
+    alamat: String,
+    skill: String,
     pc:{
         type: mongoose.Schema.Types.ObjectId,
         ref:"pc-room"

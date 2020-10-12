@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send('welcome to exercise-autorization');
+  res.send('welcome to exercise-autorization-with-view');
 });
 
 module.exports = router;
