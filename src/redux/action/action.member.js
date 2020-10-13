@@ -52,7 +52,7 @@ export const loginAction = (values, e, history) => (dispatch) =>{
             dispatch(setLogin(response.data))
             setTimeout(()=>{
                 history.push("/member")
-            }, 2000)
+            }, )
         }
         if(response.data === undefined){
             // dispatch(setLogin(response.data))
