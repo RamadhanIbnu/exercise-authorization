@@ -48,12 +48,6 @@ const Login = () =>{
       <Container>
         <Form
          noValidate validated={validated} onSubmit={handleSubmit}
-        //   onSubmit={(event) => {
-        //     dispatch(loginAction(login, event, history));
-        //     if(isLogged.member.isLogged){
-        //         alert("login berhasil")
-        //     }
-        //   }, handleSubmit()}
           
         >
           <Form.Group>
