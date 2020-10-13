@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Member from "./pages/Member";
 import MyProfile from "./pages/MyProfile";
 import PcRoom from "./pages/PcRoom";
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Route exact path="/">
           <Home/>
         </Route>
-        <Route path="me">
+        <Route path="/myprofile">
           <MyProfile/>
         </Route>
         <Route path="/member">
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login/>
+        </Route>
+        <Route path="/register">
+          <Register/>
         </Route>
       </Switch>
     </Router>

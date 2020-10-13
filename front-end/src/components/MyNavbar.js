@@ -20,7 +20,10 @@ const MyNavbar = () => {
         </LinkContainer>
       </Nav>
       <LinkContainer to="/login">
-        <Button variant="outline-info">Login</Button>
+        <Button variant="outline-info">LOGIN</Button>
+      </LinkContainer>
+      <LinkContainer to="/register">
+        <Button variant="outline-info">REGISTER</Button>
       </LinkContainer>
     </Navbar>
   );
